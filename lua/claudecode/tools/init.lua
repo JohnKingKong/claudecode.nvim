@@ -44,9 +44,12 @@ function M.register_all()
   M.register(require("claudecode.tools.open_file"))
   M.register(require("claudecode.tools.get_current_selection"))
   M.register(require("claudecode.tools.get_open_editors"))
-  M.register(require("claudecode.tools.open_diff"))
+  -- open_diff / close_all_diff_tabs intentionally not registered: this fork
+  -- is used purely for ClaudeCodeSend (at_mention). Diff/edit review is
+  -- always handled by claude-reviewer.nvim's PermissionRequest hook, never
+  -- by this IDE connection, so Claude Code must not have an openDiff tool
+  -- to call.
   M.register(require("claudecode.tools.get_latest_selection"))
-  M.register(require("claudecode.tools.close_all_diff_tabs"))
   M.register(require("claudecode.tools.get_diagnostics"))
   M.register(require("claudecode.tools.get_workspace_folders"))
   M.register(require("claudecode.tools.check_document_dirty"))
